@@ -63,11 +63,11 @@ h2 { margin: 0 0 24px; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.42; l
 .detail-card > span { color: var(--brass); font: 12px Georgia, serif; }
 .detail-card h3 { margin: 78px 0 18px; font-size: 22px; line-height: 1.45; }
 .detail-card p { font-size: 13px; line-height: 1.9; }
-.movie { display: grid; grid-template-columns: 360px 570px; gap: 46px; align-items: center; justify-content: center; }
+.movie { display: grid; grid-template-columns: 360px 470px; gap: 46px; align-items: center; justify-content: center; }
 .movie-copy { max-width: 360px; }
 .movie-copy h2 { margin-bottom: 18px; font-size: clamp(25px, 2.25vw, 33px); line-height: 1.45; }
 .movie-copy p:last-child { margin: 0; color: #70695e; font-size: 13px; line-height: 2; }
-.video-frame { max-width: 570px; overflow: hidden; background: #2c2a25; box-shadow: 0 20px 48px rgba(51, 39, 19, .14); }
+.video-frame { width: 100%; max-width: 470px; overflow: hidden; background: #2c2a25; box-shadow: 0 20px 48px rgba(51, 39, 19, .14); }
 .workshop-video { width: 112%; max-width: none; display: block; border: 0; background: #2c2a25; transform: translateX(-7%); }
 .info { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
 .info-list { margin: 0; border-top: 1px solid var(--ink); }
@@ -90,7 +90,7 @@ h2 { margin: 0 0 24px; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.42; l
 .access-list dt { font-size: 12px; font-weight: 600; }
 .access-list dd { margin: 0; font-size: 14px; line-height: 1.85; }
 .access-note { margin: 24px 0 0; padding: 18px 20px; background: #efe4d0; color: #655337; font-size: 13px; }
-.route-movie { max-width: 430px; margin-top: 0; }
+.route-movie { max-width: 390px; margin-top: 0; }
 .route-movie > p { margin: 0 0 10px; color: #6f6658; font-size: 12px; letter-spacing: .06em; }
 .route-video-frame { overflow: hidden; background: #2c2a25; box-shadow: 0 18px 42px rgba(51, 39, 19, .14); }
 .route-video { width: 112%; max-width: none; display: block; background: #2c2a25; transform: translateX(-7%); }
@@ -241,7 +241,7 @@ footer p { color: #777166; font-size: 11px; }
   .movie { display: block; }
   .movie-copy { max-width: none; margin-bottom: 28px; }
   .movie-copy h2 { font-size: 27px; }
-  .video-frame { max-width: none; margin-left: 0; }
+  .video-frame { max-width: 86vw; margin-left: auto; margin-right: auto; }
   .info { display: block; }
   .info-list { margin-top: 35px; }
   .info-list div { grid-template-columns: 80px 1fr; }
@@ -252,7 +252,7 @@ footer p { color: #777166; font-size: 11px; }
   .access { display: block; padding-top: 0; }
   .access-copy { padding: 42px 0 0; }
   .access-list div { grid-template-columns: 74px 1fr; gap: 14px; }
-  .route-movie, .route-video-frame { max-width: none; }
+  .route-movie, .route-video-frame { max-width: 86vw; margin-left: auto; margin-right: auto; }
   .reserve { padding: 80px 20px; }
   .reserve-heading h2 { font-size: 28px; }
   .steps { margin: 40px auto 55px; }
@@ -271,6 +271,10 @@ footer p { color: #777166; font-size: 11px; }
   .button-row { flex-direction: column-reverse; gap: 8px; }
   .button-row .primary-button { width: 100%; }
   .summary div { grid-template-columns: 105px 1fr; }
+  .trip-map { display: block; margin: -8px 0 28px; padding: 26px 22px; }
+  .trip-map h3 { font-size: 22px; line-height: 1.55; }
+  .trip-map p:not(.eyebrow) { max-width: none; font-size: 13px; line-height: 1.95; }
+  .trip-map a { width: 100%; min-width: 0; margin-top: 22px; padding: 14px 16px; }
   .trip-grid { display: block; background: transparent; }
   .trip-schedule { padding: 28px 24px; }
   .trip-schedule li { grid-template-columns: 1fr; gap: 6px; }
@@ -295,7 +299,7 @@ footer p { color: #777166; font-size: 11px; }
   h1 { font-size: clamp(38px, 5vw, 52px); }
   h2 { font-size: clamp(29px, 3.5vw, 38px); }
   .hero-copy { padding: 64px 7%; }
-  .movie { grid-template-columns: 320px minmax(360px, 520px); gap: 38px; }
+  .movie { grid-template-columns: 320px minmax(340px, 460px); gap: 38px; }
   .access { grid-template-columns: .85fr 1.05fr; gap: 44px; }
   .section { padding-top: 96px; padding-bottom: 96px; }
   .trip-grid { grid-template-columns: repeat(2, 1fr); }
