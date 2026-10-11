@@ -1,4 +1,12 @@
 const form = document.querySelector('#booking-form');
+const videos = [...document.querySelectorAll('video')];
+videos.forEach((video) => {
+  video.addEventListener('play', () => {
+    videos.forEach((other) => {
+      if (other !== video) other.pause();
+    });
+  });
+});
 const steps = [...document.querySelectorAll('.form-step')];
 const indicators = [...document.querySelectorAll('[data-step-indicator]')];
 const seatCounts = new Map([...document.querySelectorAll('[name="date"]')].map((date) => [date.value, Number(date.dataset.seats) || 0]));
@@ -6,6 +14,8 @@ let currentStep = 1;
 
 function showStep(number) {
   currentStep = number;
+  const selectedDate = form.querySelector('[name="date"]:checked');
+  document.querySelector('[data-selected-booking-date]').textContent = selectedDate?.value || '日時を選んでください';
   steps.forEach((step) => step.classList.toggle('active', Number(step.dataset.step) === number));
   indicators.forEach((indicator) => {
     indicator.classList.toggle('active', Number(indicator.dataset.stepIndicator) <= number);
