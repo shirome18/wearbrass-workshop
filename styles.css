@@ -327,3 +327,5 @@ footer p { color: #777166; font-size: 11px; }
   .section { padding-top: 96px; padding-bottom: 96px; }
   .trip-grid { grid-template-columns: repeat(2, 1fr); }
 }
+[hidden] { display: none !important; }
+.booking-privacy { font-size: 12px; line-height: 1.8; color: #716b60; margin: 18px 0; }

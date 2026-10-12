@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261012-course-heading">
+  <link rel="stylesheet" href="styles.css?v=20261012-live-booking">
 </head>
 <body>
   <div class="preview-note">公開前の試作ページです。実際の予約は送信されません。</div>
@@ -348,6 +348,7 @@
             <p>ご都合が悪くなった場合は、できるだけ早めにInstagramのDMからご連絡ください。少人数で準備しているため、直前のキャンセルや人数変更も、わかった時点でお知らせいただけると助かります。</p>
           </div>
           <label class="agreement"><input type="checkbox" name="agreement" required><span>キャンセルについての案内を確認しました。</span></label>
+          <p class="booking-privacy">ご入力いただいた情報は、WEARbrassが予約管理・ご連絡のために使用し、Googleの非公開の予約管理表に保存します。メールアドレスをご入力いただいた方には確認メールをお送りします。</p>
           <p class="form-error" role="alert"></p>
           <div class="button-row"><button class="text-button back-button" type="button">修正する</button><button class="primary-button" type="submit">この内容で予約する</button></div>
         </section>
@@ -356,7 +357,7 @@
           <div class="completion-mark">✓</div>
           <p class="eyebrow">THANK YOU</p>
           <h3>ご予約を承りました</h3>
-          <p>ご入力いただいた連絡先へ、予約内容と当日のご案内をお送りします。</p>
+          <p data-completion-contact>ご入力いただいた連絡先へ、予約内容と当日のご案内をお送りします。</p>
           <dl class="summary completion-summary" id="completion-summary"></dl>
           <p class="screenshot-note">念のため、この画面をスクリーンショットしておくと安心です。</p>
           <p class="demo-reminder">これは試作のため、実際には送信されていません。</p>
@@ -451,6 +452,6 @@
   </main>
 
   <footer><a class="brand" href="#top">WEAR<span>*</span>brass</a><p>Handmade brass accessories · Tokyo</p></footer>
-  <script src="script.js?v=20261012-video-playback"></script>
+  <script src="script.js?v=20261012-live-booking"></script>
 </body>
 </html>
