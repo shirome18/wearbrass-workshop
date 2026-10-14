@@ -1,10 +1,20 @@
 const form = document.querySelector('#booking-form');
 const BOOKING_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzKOnBMleXcrxjNGZUrbZaNn1BojUQL851g0q5ilMUBZp6hBPAkJH0k0hxfSBJFIs1C-Q/exec';
-const liveBooking = Boolean(BOOKING_ENDPOINT);
+const schedulePreview = ['127.0.0.1', 'localhost'].includes(location.hostname) && new URLSearchParams(location.search).has('schedulepreview');
+const liveBooking = Boolean(BOOKING_ENDPOINT) && !schedulePreview;
 let seatsReady = !liveBooking;
 let submitting = false;
 let lastSubmission = null;
 const videos = [...document.querySelectorAll('video')];
+document.querySelectorAll('.video-cover').forEach((cover) => {
+  const video = cover.parentElement.querySelector('video');
+  cover.addEventListener('click', async () => {
+    cover.hidden = true;
+    try { await video.play(); } catch { cover.hidden = false; }
+  });
+  video.addEventListener('play', () => { cover.hidden = true; });
+  video.addEventListener('ended', () => { cover.hidden = false; });
+});
 videos.forEach((video) => {
   video.addEventListener('play', () => {
     videos.forEach((other) => {
@@ -163,8 +173,13 @@ document.querySelectorAll('.back-button').forEach((button) => {
   button.addEventListener('click', () => showStep(currentStep - 1));
 });
 
+function continueWithSelectedDate() {
+  updateSeatLabels();
+  if (currentStep === 1 && validateStep(1)) showStep(2);
+}
+
 document.querySelectorAll('[name="date"]').forEach((date) => {
-  date.addEventListener('change', updateSeatLabels);
+  date.addEventListener('click', continueWithSelectedDate);
 });
 
 document.querySelectorAll('[data-status-date]').forEach((button) => {
@@ -172,7 +187,7 @@ document.querySelectorAll('[data-status-date]').forEach((button) => {
     const date = [...document.querySelectorAll('[name="date"]')].find((option) => option.value === button.dataset.statusDate);
     if (!date || date.disabled) return;
     date.checked = true;
-    updateSeatLabels();
+    continueWithSelectedDate();
   });
 });
 
